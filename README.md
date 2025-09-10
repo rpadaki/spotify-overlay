@@ -20,8 +20,9 @@ A beautiful floating Spotify overlay for macOS that shows your currently playing
 ### Option 1: Download Release (Recommended)
 1. Download the latest `.dmg` from [Releases](../../releases)
 2. Mount the DMG and drag `SpotifyOverlay.app` to Applications
-3. Launch the app (it will request accessibility permissions)
-4. Optional: Add to Login Items in System Preferences for auto-start
+3. **Important**: Right-click the app and select "Open" (macOS will show a security warning for unsigned apps)
+4. Grant accessibility permissions when prompted
+5. Optional: Add to Login Items in System Preferences for auto-start
 
 ### Option 2: Build from Source
 ```bash
