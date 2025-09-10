@@ -187,7 +187,7 @@ struct SpotifyOverlayView: View {
                 windowController.dismissForOneMinute()
             }
         )
-        .opacity(windowController.isDismissed ? 0.0 : (isVisible ? (isHovered ? 1.0 : max(0.6, windowController.opacity)) : 0.0))
+        .opacity(windowController.isDismissed || !spotifyManager.isSpotifyRunning ? 0.0 : (isVisible ? (isHovered ? 1.0 : max(0.6, windowController.opacity)) : 0.0))
         .animation(.spring(response: 0.4, dampingFraction: 0.7), value: isVisible)
         .animation(.easeInOut(duration: 0.3), value: isHovered)
         .animation(.easeInOut(duration: 0.4), value: isColorFlashing)

@@ -15,7 +15,7 @@ let package = Package(
         .executableTarget(
             name: "SpotifyOverlay",
             path: ".",
-            exclude: ["README.md", "build.sh"]
+            exclude: ["README.md"]
         )
     ]
 )
