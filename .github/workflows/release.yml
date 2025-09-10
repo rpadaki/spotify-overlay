@@ -6,6 +6,9 @@ on:
       - 'v*'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: macos-latest
@@ -48,26 +51,23 @@ jobs:
     
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         files: SpotifyOverlay.dmg
+        generate_release_notes: true
         body: |
-          ## Spotify Overlay ${{ github.ref_name }}
-          
           > **Disclaimer**: This whole thing was vibecoded but it does seem to work
           
-          ### Installation
+          ## Installation
           1. Download and mount the DMG
-          2. Drag SpotifyOverlay.app to Applications
+          2. Drag SpotifyOverlay.app to Applications  
           3. Launch it once (it will request accessibility permissions)
           4. Add to Login Items for auto-start
           
-          ### Features
+          ## Features
           - 🎵 Beautiful floating Spotify overlay
           - 🎨 Color transitions on hover and song changes  
           - 🖱️ Drag to reposition with edge snapping
           - 🎮 Interactive controls (play/pause, seek)
           - 👻 Auto-hides when Spotify isn't running
           - 💫 Double-click anywhere to dismiss for 1 minute
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
